@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400;1,9..144,600&family=Montserrat:wght@400;600&family=Work+Sans:wght@400;500;600;700;800&display=swap");
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+}
+html{
+    font-size: 62.5%;
+    /* 1rem= 10px */
+    overflow-x: hidden;
+}
+body{
+    overflow-x: hidden;
+}
+.header{
+    padding: 0 3rem;
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color:#e7f5ff; */
+    background-color: black;
+}
+.header .logo{
+height: 8rem ;
+width: 10rem;
+}
+.navbar-list{
+    display: flex;
+    gap: 5rem;
+    list-style: none;
+    
+}
+
+.navbar-link:link,
+.navbar-link:visited{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 500;
+    color: white;
+
+}
+
+.navbar-link:hover,.navbar-link:active{
+    color: goldenrod;
+}
+
+/* <!-- ======================================================================
+
+                OUR HERO AND SERVIVES SECTION START
+
+====================================================================== --> */
+.section-hero,.section-services{
+    padding: 9.5rem 0;
+    background-color: #a5d8ff;
+    height: 60vh;
+    font-size: 3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-services{
+    background: #f3f0ff;
+}
+/* styling navbar icon */
+.mobile-nav-icon{
+    color: white;
+    height: 5rem;
+    width: 5rem;
+}
+/* we remove the icon for desktop version */
+.mobile-navbar-btn{
+    display: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.mobile-nav-icon[name="close-outline"]{
+    display: none;
+}
+
+/* ========================================
+            responsive design
+======================================== */
+@media (max-width: 62em){
+    .mobile-navbar-btn{
+        display: block;
+        z-index: 999;
+        border: 3px solid white;
+    }
+    .header{
+        position:relative;
+    }
+
+    /* logo design */
+
+    .navbar{
+        /* display: none; */
+        width: 100%;
+        height: 100vh;
+        background-color:black;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* to get the transition */
+        transform: translateX(100%);
+        transition: all 0.5s linear;
+
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+    }
+    .navbar-list{
+        flex-direction: column;
+        align-items: center;
+    }
+    .active .navbar{
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    .active .mobile-navbar-btn .mobile-nav-icon[name="close-outline"]{
+        display: block;
+    }
+    .active .mobile-navbar-btn .mobile-nav-icon[name="menu-outline"]{
+        display: none;
+    }
+
+}
+@media(max-width:35em){
+    .header{
+        padding: 0 2.4rem;
+    }
+    .header .logo{
+        width: 70%;
+    }
+}
